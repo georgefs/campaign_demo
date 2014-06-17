@@ -1,0 +1,48 @@
+{% macro basecss() %}
+    .adframe {
+        border-width: 1px;
+        border-style: solid;
+        border-color: #cccccc;
+        background-color: #ffffff; /* css {"title":"邊框顏色","group":"樣式設定","sub":"最外圍"} */
+        background-image: url('');/* css {"title":"邊框背景","group":"樣式設定","sub":"最外圍"} */
+    }
+
+{% endmacro %}
+
+{% macro basejs() %}
+        Tagtoo.layout.ec_id = 130; /* js {"title":"ec id", "group":"基本設定" ,"sub":"廣告主資料設定"} */
+        Tagtoo.layout.ec_name = 'housefun'; /* js {"title":"ec name", "group":"基本設定" ,"sub":"廣告主資料設定"} */
+        Tagtoo.layout.logoImg = '//lh4.ggpht.com/1rrkBIpe1JmZ0w-p3QxRc6xYJIWKjvXRrS4c14SIGYTKk8lqsNTxY1bBTVT3XV3TAFjU9brEhfw51jO1hWVIKyg'; /* js {"title":"ec id", "group":"基本設定" ,"sub":"廣告主資料設定"} */
+        Tagtoo.layout.logoLink = '//www.google.com'; /* js {"title":"logo link", "group":"基本設定" ,"sub":"廣告主資料設定"} */
+        Tagtoo.layout.ec_logo = ''; /* js {"title":"頭巾腰帶", "group":"基本設定" ,"sub":"廣告主資料設定"} */
+        Tagtoo.layout.text = '秋冬賞 熱銷款 兩件69折'; /* js {"title":"slogan", "group":"基本設定" ,"sub":"廣告主資料設定"} */
+        Tagtoo.env.creator.qm = 'key'; /* js {"title":"query method","group":"基本設定"} */
+        Tagtoo.env.creator.qp = 'http://www.yungching.com.tw/'; /* js {"title":"root page","group":"基本設定"} */
+{% endmacro %}
+
+
+{% macro housecss() %}
+    .item_description {
+        line-height: 17px; /* css {"title":"行距","group":"樣式設定","sub":"商品描述"} */
+    }
+
+    .item_original_price {
+        margin-top: 0px; /* css {"title":"Y位置","group":"樣式設定","sub":"原價"} */
+        margin-left: 0px; /* css {"title":"X位置","group":"樣式設定","sub":"原價"} */
+    }
+
+    .item_desc_hover {
+        background-color: #ffffff; /* css {"title":"背景顏色","group":"樣式設定","sub":"商品詳細資訊"} */
+    }
+{% endmacro %}
+
+
+{% macro housejs() %}
+    // house
+    Tagtoo.layout.region = true; /* js {"title":"顯示區域","group":"房地產設定"} */
+    Tagtoo.layout.area = true; /* js {"title":"顯示坪數","group":"房地產設定"} */
+    Tagtoo.layout.pattern = true; /* js {"title":"顯示格局","group":"房地產設定"} */
+{% endmacro %}
+
+
+{% macro eccss %}

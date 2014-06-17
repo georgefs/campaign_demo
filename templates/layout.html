@@ -1,0 +1,117 @@
+{% raw %}
+{% extends "ad/ad_new_base.html" %}
+{% block extend_js %}
+
+{% endblock %}
+
+{% block css %}
+<link id="ad_own_600x200" rel="stylesheet" href="/static/ad/css/ad_own/ad_own_600x90.css?v={{version_id}}" type="text/css">
+<style>
+{% endblock %}
+{% endraw %}
+
+
+==============================================
+
+{% block css %}{% endblock %}
+
+================================================
+
+
+{% raw %}
+    .item_body{
+        background-color: #f4adab; /* css */
+        background-image: url('');/* css */
+    }
+
+    .item_title {
+        width: 100%;/* css */
+        height: 18px;/* css */
+    }
+
+    .item_title a{
+        font-size: 14px;/* css */
+    }
+
+    .hint {
+        line-height: 90px;
+        border-width: 0px;
+        border-style: solid;
+        border-color: #cccccc;
+        background-image: url('');
+        background-color: #ffffff;
+    }
+
+    .hint img{
+        top: 0;/* css */
+        left: 0px;/* css */
+    }
+
+    .text{
+        position: absolute;
+        top:65px;/* css */
+        left: 2px;/* css */
+        color:#ff0000;/* css */
+    }
+</style>
+{% endblock %}
+{% block content %}
+<script type="text/javascript">
+    (function() {
+        var layout = Tagtoo.layout;
+        Tagtoo.pagefn = {{ js_template('ad/layout/layout_own_600x90.html') }};
+        Tagtoo.init();
+{% endraw %}
+
+
+===========================================================
+
+{% block js %}{% endblock %}
+
+============================================================
+
+
+
+{% raw %}
+        // 1. 從後端 Template 取得變數
+        Tagtoo.layout = {};
+        Tagtoo.layout.width = 600;/* js {"title":"版位寬度", "group":"基本設定" ,"sub":"大小"} */
+        Tagtoo.layout.height = 90; /* js {"title":"版位高度", "group":"基本設定" ,"sub":"大小"} */
+        Tagtoo.layout.item_num = 5;
+        Tagtoo.layout.start_item = 0;
+        Tagtoo.layout.show_store_price = true; /* js {"title":"顯示原價", "group":"基本設定" ,"sub":"價錢"} */
+        Tagtoo.layout.title = {};
+        Tagtoo.layout.title.row = 1; /* js {"title":"列數", "group":"基本設定" ,"sub":"商品描述"} */
+        Tagtoo.layout.title.rown = 40; /* js {"title":"每列字元數", "group":"基本設定" ,"sub":"商品描述"} */
+        Tagtoo.layout.description = {};
+        Tagtoo.layout.description.row = 2; /* js {"title":"列數", "group":"基本設定" ,"sub":"商品描述"} */
+        Tagtoo.layout.description.rown = 30; /* js {"title":"每列字元數", "group":"基本設定" ,"sub":"商品描述"} */
+        Tagtoo.layout.parse_description = false; /* js {"title":"過濾特殊字元","group":"版面設定"} */
+        Tagtoo.layout.parse_intercepted_description = true; /* js {"title":"描述切字功能","group":"版面設定"} */
+        Tagtoo.layout.parse_price = true; /* js {"title":"價錢破萬換中文","group":"版面設定"} */
+        Tagtoo.layout.ad_left = true; /* js */
+        // logo changes
+
+        Tagtoo.queryAds(function(data) {
+            var html = Tagtoo.render();
+
+            Tagtoo.ad_data['logo'] = {
+                ec_id: Tagtoo.layout.ec_id,
+                item_hash: Tagtoo.layout.ec_name + "_logo",
+                item_id: Tagtoo.layout.ec_id,
+                link: Tagtoo.layout.logoLink,
+                title: Tagtoo.layout.ec_name
+            };
+
+            document.body.innerHTML = html;
+
+            // Trigger display event
+            $(Tagtoo).trigger("display");
+        });
+    })();
+</script>
+<script type="text/javascript" src="/static/ad/js/slideshow.js"></script>
+<script type="text/javascript" src="/static/ad/js/ad_own/ad_own_600x90.js?v={{version_id}}"></script>
+
+{% endblock %}
+{% endraw %}
